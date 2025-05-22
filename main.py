@@ -3,6 +3,7 @@ print("🚀 Flask app started")
 from flask import Flask, request, jsonify
 from google.cloud import bigquery
 import tempfile, requests
+import os
 
 app = Flask(__name__)
 
@@ -39,4 +40,6 @@ def init_bigquery():
         return jsonify({"status": "error", "message": str(e)}), 400
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    print(f"Running on host=0.0.0.0, port={port}")
+    app.run(host="0.0.0.0", port=port, debug=True)
