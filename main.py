@@ -1,3 +1,5 @@
+print("🚀 Flask app started")
+
 from flask import Flask, request, jsonify
 from google.cloud import bigquery
 import tempfile, requests
