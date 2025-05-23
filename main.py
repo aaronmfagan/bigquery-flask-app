@@ -7,6 +7,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route("/", methods=["GET"])
+def home():
+    return "Flask app is alive!", 200
+
 @app.route('/init_bigquery', methods=['POST'])
 def init_bigquery():
     data = request.json
