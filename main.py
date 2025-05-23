@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def home():
+    print("✅ Home route hit")
     return "Flask app is alive!", 200
 
 @app.route('/init_bigquery', methods=['POST'])
